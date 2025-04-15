@@ -1,18 +1,36 @@
 
-let cont       = document.getElementById("cont");
-let button     = document.querySelector("button");
+
+let vid1 = document.querySelector('#vid1');
+let vid2 = document.querySelector("#vid2");
 
 
-const converter = (number) => {
-    if (number == 0) {
-        cont.innerHTML = '<video src="videoes/rock.mp4" autoplay muted playsinline></video>'
-    } else if (number == 1) {
-       cont.innerHTML = '<video src="videoes/paper.mp4" autoplay muted playsinline></video>'
-    } else {
-        cont.innerHTML = '<video src="videoes/scissor.mp4" autoplay muted playsinline></video>'
+const player = (value) =>{
+    if(value==0){
+       vid2.innerHTML = '<video src="videoes/rock.mp4" autoplay muted></video>'
     }
-};
+    else if(value==1){
+        vid2.innerHTML = '<video src="videoes/paper.mp4" autoplay muted></video>'
+    }
+    else if(value==2){
+        vid2.innerHTML = '<video src="videoes/scissor.mp4" autoplay muted></video>'
+    }
+}
+let button = document.querySelectorAll("button")
 
-button.addEventListener("click",()=>{
-    converter(Math.floor(Math.random()*3));
+button.forEach((value,index)=>{
+    value.addEventListener("click",()=>{
+        if(index==0){
+            vid1.innerHTML = '<video src="videoes/rock1.mp4" autoplay muted></video>'
+            player(Math.floor(Math.random()*3))
+        }
+       else if(index==1){
+            vid1.innerHTML = '<video src="videoes/paper1.mp4" autoplay muted></video>'
+            player(Math.floor(Math.random()*3))
+        }
+        else if(index==2){
+            vid1.innerHTML = '<video src="videoes/scissor1.mp4" autoplay muted></video>'
+            player(Math.floor(Math.random()*3))
+        }
+    })
+
 })
